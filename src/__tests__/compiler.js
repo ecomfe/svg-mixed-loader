@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-
 module.exports = (options = {}) => {
     const compiler = webpack({
         mode: 'development',

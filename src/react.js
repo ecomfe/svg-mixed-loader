@@ -5,6 +5,8 @@ const {pascalCase} = require('change-case');
 const normalizeOptions = require('./normalizeOptions');
 
 const babelOptions = {
+    babelrc: false,
+    configFile: false,
     presets: [
         require.resolve('@babel/preset-react'),
     ],
