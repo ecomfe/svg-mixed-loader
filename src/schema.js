@@ -31,6 +31,18 @@ module.exports = {
                 },
             ],
         },
+        default: {
+            anyOf: [
+                {
+                    type: 'string',
+                    enum: ['url', 'react'],
+                },
+                {
+                    type: 'boolean',
+                    enum: [false],
+                },
+            ],
+        },
     },
     additionalProperties: false,
 };

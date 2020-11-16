@@ -2,7 +2,7 @@ const compiler = require('./compiler');
 
 test('default export', async () => {
     const {code} = await compiler();
-    expect(code.includes('export default "')).toBe(true);
+    expect(code.includes('export const url = "')).toBe(true);
 });
 
 test('limit', async () => {

@@ -1,7 +1,9 @@
 const urlLoader = require('url-loader');
 const normalizeOptions = require('./normalizeOptions');
 
-module.exports = async (loaderContext, source, options) => {
+exports.exportedName = 'url';
+
+exports.transform = async (loaderContext, source, options) => {
     const urlOptions = normalizeOptions(options.url, true, {});
 
     if (!urlOptions) {
@@ -15,12 +17,16 @@ module.exports = async (loaderContext, source, options) => {
         {},
         loaderContext,
         {
-            query: options.url || {},
+            query: {
+                ...options.url,
+                // Must be true to ensure later replace works
+                esModule: true,
+            },
         }
     );
     const result = await urlLoader.call(urlLoaderContext, source);
     return {
         imports: [],
-        body: [result],
+        body: [result.replace('export default ', 'export const url = ')],
     };
 };

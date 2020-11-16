@@ -31,17 +31,17 @@ module.exports = (options = {}) => {
             if (err) {
                 reject(err);
             }
-
-            if (stats.hasErrors()) {
-                reject(new Error(stats.toJson().errors));
+            else if (stats.hasErrors()) {
+                reject(new Error('error'));
             }
-
-            const output = stats.toJson();
-            const result = {
-                code: output.modules[0].source,
-                assets: output.assets,
-            };
-            resolve(result);
+            else {
+                const output = stats.toJson();
+                const result = {
+                    code: output.modules[0].source,
+                    assets: output.assets,
+                };
+                resolve(result);
+            }
         });
     });
 };
