@@ -36,10 +36,10 @@ As these use cases are conflicting to each other, this loader sovles this by exp
 
 ## Install
 
-`svg-mixed-loader` requires url-loader and file-loader as peer dependencies.
+`@ecomfe/svg-mixed-loader` requires url-loader and file-loader as peer dependencies.
 
 ```shell
-npm install -D svg-mixed-loader url-loader file-loader
+npm install -D @ecomfe/svg-mixed-loader url-loader file-loader
 ```
 
 ## Usage
@@ -53,7 +53,7 @@ module.exports = {
                 test: /\.svg$/,
                 use: [
                     {
-                        loader: 'svg-mixed-loader',
+                        loader: '@ecomfe/svg-mixed-loader',
                         options: {
                             // options
                         },
@@ -108,5 +108,5 @@ ReactComponent.displayName = 'AutoResolvedComponentName';
 }
 ```
 
-By default `svg-mixed-loader` generates only default export, behaves exactly the same as `url-loader`,
+By default `@ecomfe/svg-mixed-loader` generates only default export, behaves exactly the same as `url-loader`,
 if `ReactComponent` named export is wanted, pass `{react: true}` as options is a quick solution.
