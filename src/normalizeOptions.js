@@ -1,7 +1,5 @@
-module.exports = (options, defaultValue, defaultOptions) => {
-    const optionsValue = options === undefined ? defaultValue : options;
-
-    switch (optionsValue) {
+module.exports = (options, defaultOptions) => {
+    switch (options) {
         case true:
             return defaultOptions;
         case false:

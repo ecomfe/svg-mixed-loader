@@ -12,9 +12,17 @@ const exportedNames = {
 
 module.exports = async function svgMixedLoader(source) {
     /* istanbul ignore next */
-    const options = loaderUtils.getOptions(this) || {url: true, react: false, default: 'url'};
+    const options = {
+        url: true,
+        react: false,
+        default: 'url',
+        ...loaderUtils.getOptions(this),
+    };
 
     validateOptions(schema, options, {name: 'svg-mixed-loader', baseDataPath: 'options'});
+    if (options.default && !options[options.default]) {
+        throw new Error(`You specified ${options.default} as default export but this is disabled in options`);
+    }
 
     const parts = await Promise.all(generators.map(g => g(this, source, options)));
     const {imports, body} = parts.reduce(

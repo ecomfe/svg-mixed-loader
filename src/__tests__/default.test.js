@@ -6,7 +6,7 @@ test('url', async () => {
 });
 
 test('react', async () => {
-    const {code} = await compiler({default: 'react'});
+    const {code} = await compiler({react: true, default: 'react'});
     expect(code.includes('export default ReactComponent')).toBe(true);
 });
 
@@ -17,4 +17,13 @@ test('disable', async () => {
 
 test('invalid', () => {
     expect(compiler({default: 'unknown'})).rejects.toThrow();
+});
+
+test('unavailable', () => {
+    expect(compiler({default: 'react'})).rejects.toThrow();
+});
+
+test('omit', async () => {
+    const {code} = await compiler({});
+    expect(code.includes('export default url')).toBe(true);
 });

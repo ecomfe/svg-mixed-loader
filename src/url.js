@@ -4,7 +4,7 @@ const normalizeOptions = require('./normalizeOptions');
 exports.exportedName = 'url';
 
 exports.transform = async (loaderContext, source, options) => {
-    const urlOptions = normalizeOptions(options.url, true, {});
+    const urlOptions = normalizeOptions(options.url, {});
 
     if (!urlOptions) {
         return {

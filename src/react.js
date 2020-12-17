@@ -32,7 +32,7 @@ const resolveDisplayName = (filename, option) => {
 exports.exportedName = EXPORTED_NAME;
 
 exports.transform = async (loaderContext, source, options) => {
-    const reactOptions = normalizeOptions(options.react, false, {displayName: true});
+    const reactOptions = normalizeOptions(options.react, {displayName: true});
 
     if (!reactOptions) {
         return {

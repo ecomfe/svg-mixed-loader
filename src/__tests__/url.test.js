@@ -12,6 +12,6 @@ test('limit', async () => {
 });
 
 test('disable', async () => {
-    const {code} = await compiler({url: false});
+    const {code} = await compiler({url: false, default: false});
     expect(code.trim()).toBe('');
 });

@@ -30,12 +30,14 @@ module.exports = (options = {}) => {
         compiler.run((err, stats) => {
             if (err) {
                 reject(err);
+                return;
             }
-            else if (stats.hasErrors()) {
-                reject(new Error('error'));
+
+            const output = stats.toJson();
+            if (stats.hasErrors()) {
+                reject(new Error(output.errors[0]));
             }
             else {
-                const output = stats.toJson();
                 const result = {
                     code: output.modules[0].source,
                     assets: output.assets,
