@@ -24,6 +24,9 @@ module.exports = (options = {}) => {
         externals: {
             react: 'React',
         },
+        optimization: {
+            splitChunks: false,
+        },
     });
 
     return new Promise((resolve, reject) => {
@@ -33,9 +36,10 @@ module.exports = (options = {}) => {
                 return;
             }
 
-            const output = stats.toJson();
+            const output = stats.toJson({source: true, errors: true});
             if (stats.hasErrors()) {
-                reject(new Error(output.errors[0]));
+                const error = output.errors[0];
+                reject(new Error(error.message || error));
             }
             else {
                 const result = {

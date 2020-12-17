@@ -1,5 +1,5 @@
 const loaderUtils = require('loader-utils');
-const validateOptions = require('schema-utils');
+const {validate: validateOptions} = require('schema-utils');
 const schema = require('./schema');
 const {transform: toReactCode, exportedName: reactExportedName} = require('./react');
 const {transform: toURLCode, exportedName: urlExportedName} = require('./url');
