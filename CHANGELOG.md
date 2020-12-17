@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/ecomfe/svg-mixed-loader/compare/v1.0.0...v1.0.1) (2020-12-17)
+
+
+### Bug Fixes
+
+* default export url by default ([1a5218d](https://github.com/ecomfe/svg-mixed-loader/commit/1a5218d5a2835c4d9241bc172eb4f230fd7f5ea2))
+
 ## [1.0.0](https://github.com/ecomfe/svg-mixed-loader/compare/v0.8.3...v1.0.0) (2020-12-16)
 
 ### [0.8.3](https://github.com/ecomfe/svg-mixed-loader/compare/v0.8.2...v0.8.3) (2020-11-16)

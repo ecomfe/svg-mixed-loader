@@ -1,6 +1,6 @@
 {
   "name": "@ecomfe/svg-mixed-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack loader resolving svg into url string and multiple component formats.",
   "main": "src/index.js",
   "scripts": {
